@@ -82,7 +82,6 @@ export default class Firework extends Figure {
 
 class CircleShard extends Figure {
     private size: number;
-    private shards?: Figure[];
     private lifetime: number;
     private timeLeft: number;
     constructor(position: Position, speed : Speed, size: number, fillStyle: FillStyle, lifetime: number){
@@ -106,6 +105,10 @@ class CircleShard extends Figure {
         context.fillStyle = this.fillStyle.toColor();
         context.closePath();
         context.fill(); 
+
+        if(this.timeLeft <= 0){
+            this.deleted = true;
+        }
     }
 
     move() : void {
