@@ -12,9 +12,9 @@ document.addEventListener('keyup', event => {
     if (event.code === 'Space') {
         fireworks.push(
             new Firework(
-                new Position(canvas.width/2, canvas.height, 100),
-                new Speed(0, -400, 0),
-                5,
+                new Position(canvas.width/2, canvas.height),
+                new Speed((Math.random() - 0.5) * 150 , -350 - Math.random() * 200),
+                2,
                 new FillStyle(255, 255, 255),
                 3
             )

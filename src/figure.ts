@@ -15,30 +15,25 @@ export abstract class Figure {
 export class Position {
     public x: number;
     public y: number;
-    public z: number;
-    constructor(x: number, y: number, z: number) {
+    constructor(x: number, y: number) {
         this.x = x;
         this.y = y;
-        this.z = z;
     }
     clone() {
-        return new Position(this.x, this.y, this.z);
+        return new Position(this.x, this.y);
     }
 }
 
 export class Speed {
     public x: number;
     public y: number;
-    public z: number;
-    constructor(x: number, y: number, z: number) {
+    constructor(x: number, y: number) {
         this.x = x;
         this.y = y;
-        this.z = z;
     }
     multiply(num: number) : Speed {
         this.x *= num;
         this.y *= num;
-        this.z *= num;
         return this;
     }
 }
@@ -49,9 +44,9 @@ export class FillStyle {
     public b: number;
     public a: number;
     constructor(r: number, g: number, b: number, a?: number) {
-        this.r = r;
-        this.g = g;
-        this.b = b;
+        this.r = Math.floor(r);
+        this.g = Math.floor(g);
+        this.b = Math.floor(b);
         this.a = a ?? 1.0;
     }
     toColor(){
